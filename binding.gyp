@@ -44,8 +44,15 @@
 				['target_arch == "arm"',
 					{
 						# There's been problems getting real fibers working on arm
-						'defines': ['CORO_PTHREAD'],
-						'defines!': ['CORO_UCONTEXT', 'CORO_SJLJ', 'CORO_ASM'],
+            # ---
+            # The defines for arm should been commented out due to a runtime problem
+            # when doing loops inside fibers.
+            # See issues at:
+            # https://github.com/4commerce-technologies-AG/meteor/issues/21
+            # https://github.com/laverdet/node-fibers/issues/108
+            #
+						# 'defines': ['CORO_PTHREAD'],
+						# 'defines!': ['CORO_UCONTEXT', 'CORO_SJLJ', 'CORO_ASM'],
 					},
 				],
 			],
